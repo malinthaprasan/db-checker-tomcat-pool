@@ -80,10 +80,10 @@ To make it easy for running in container environments, the tool is published to 
 
 Sample docker-compose.yaml configuration is available under `docker-compose` folder.
 
-``
+```shell
 $ cd docker-compose
 $ docker compose up
-`` 
+```
 
 ## Sample Log
 
