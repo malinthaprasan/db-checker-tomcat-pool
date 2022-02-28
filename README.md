@@ -83,7 +83,7 @@ Sample docker-compose.yaml configuration is available under `docker-compose` fol
 
 ```shell
 $ cd docker-compose
-$ docker compose up
+$ docker-compose up
 ```
 
 ## Sample Log
