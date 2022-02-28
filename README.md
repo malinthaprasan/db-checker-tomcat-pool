@@ -1,7 +1,7 @@
 # DB Connectivity Checker for Tomcat JDBC Pool
 
 The tool can be used to configure a DB connection pool with Tomcat JDBC and periodically run database queries to check 
-DB connectivity issues. Some logic used here is burrowed from [WSO2 Customer Success Troubleshoot Kit](https://github.com/wso2-cs/troubleshoot-kit/commits/master/database-response-timing).
+DB connectivity issues. Some logic used here is burrowed from [WSO2 Customer Success Troubleshoot Kit](https://github.com/wso2-cs/troubleshoot-kit/tree/master/database-response-timing).
 Connectivity stat logs are printed in JSON format to make it easy to analyse.
 
 ## Configuration
