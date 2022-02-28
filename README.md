@@ -7,8 +7,8 @@ DB connectivity issues. Connectivity stat logs are printed in JSON format to mak
 
 Configuration parameters needs to be specified by environment parameters. There are two types of parameters supported:
 
-*DB_CHECKER_{PARAM}*: Application Specific Parameters
-*TOMCAT_JDBC_{PARAM}*: Tomcat JDBC Pool Configuration
+**DB_CHECKER_{PARAM}**: Application Specific Parameters
+**TOMCAT_JDBC_{PARAM}**: Tomcat JDBC Pool Configuration
 
 List of supported Application Specific Parameters:
 
