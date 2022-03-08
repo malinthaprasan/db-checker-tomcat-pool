@@ -79,10 +79,16 @@ have a look at the [documentation](https://tomcat.apache.org/tomcat-9.0-doc/jdbc
 
 To make it easy for running in container environments, the tool is published to docker-hub under [malinthaprasan/db-checker-tomcat:1.0](https://hub.docker.com/r/malinthaprasan/db-checker-tomcat)
 
-Sample docker-compose.yaml configuration is available under `docker-compose` folder.
+Sample docker-compose.yaml configurations for `mssql` and `mysql` are available under `docker-compose` folder.
 
+### mssql
 ```shell
-$ cd docker-compose
+$ cd docker-compose/mssql
+$ docker-compose up
+```
+### mysql
+```shell
+$ cd docker-compose/mysql
 $ docker-compose up
 ```
 
