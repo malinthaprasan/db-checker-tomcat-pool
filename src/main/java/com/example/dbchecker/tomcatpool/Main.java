@@ -105,12 +105,12 @@ public class Main {
 
         if (System.getenv(ENV_LOG_RESULT_SET) != null &&
                 !System.getenv(ENV_LOG_RESULT_SET).isEmpty()) {
-            logResultSet = Boolean.getBoolean(System.getenv(ENV_LOG_RESULT_SET));
+            logResultSet = Boolean.parseBoolean(System.getenv(ENV_LOG_RESULT_SET));
         }
 
         if (System.getenv(ENV_ITERATE_RESULT_SET) != null &&
                 !System.getenv(ENV_ITERATE_RESULT_SET).isEmpty()) {
-            iterateResultSet = Boolean.getBoolean(System.getenv(ENV_ITERATE_RESULT_SET));
+            iterateResultSet = Boolean.parseBoolean(System.getenv(ENV_ITERATE_RESULT_SET));
         }
 
         log.info("{ \"event\": \"appliedParam\", \"param\": \"" + ENV_TOTAL_ITERATIONS + "\", \"value\": \"" + totalIterations + "\"}");
