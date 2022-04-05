@@ -107,3 +107,10 @@ $ docker-compose up
 { "time": "2022-02-28 17:13:27", "type": "INFO ", "class": "Main:133", "log":{ "event": "getConnectionStart", "conIteration" : 2}}
 { "time": "2022-02-28 17:13:27", "type": "INFO ", "class": "Main:136", "log":{ "event": "getConnectionEnd", "conIteration": 2, "getConnectionTimeMs" : 0}}
 ```
+
+## How to Build
+
+From repo root folder
+1. Build the jar using `mvn clean install`
+2. Build the docker image `docker build -t <docker-repository>/<name>:<version> .`
+3. Push the docker image `docker image push <docker-repository>/<name>:<version>`

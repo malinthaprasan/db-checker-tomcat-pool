@@ -16,7 +16,7 @@ services:
         start_period: 10s
 
   db-checker:
-    image: malinthaprasan/db-checker-tomcat:1.0
+    image: malinthaprasan/db-checker-tomcat:1.1
     environment:
       - TOMCAT_JDBC_URL=jdbc:sqlserver://mssql:1433;database=tempdb;SendStringParametersAsUnicode=false
       - TOMCAT_JDBC_PASSWORD=yourStrong#Password
@@ -26,6 +26,7 @@ services:
       - TOMCAT_JDBC_MIN_IDLE=10
       - TOMCAT_JDBC_MAX_IDLE=10
       - TOMCAT_JDBC_MAX_ACTIVE=100
+      - TOMCAT_JDBC_MAX_AGE=43200000
       - TOMCAT_JDBC_VALIDATION_QUERY=SELECT 1
       - TOMCAT_JDBC_LOG_ABANDONED=true
       - TOMCAT_JDBC_VALIDATION_INTERVAL=30000

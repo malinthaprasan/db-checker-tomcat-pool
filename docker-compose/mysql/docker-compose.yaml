@@ -18,7 +18,7 @@ services:
       - ./mysql/sql-scripts/:/docker-entrypoint-initdb.d/
 
   db-checker:
-    image: malinthaprasan/db-checker-tomcat:1.0
+    image: malinthaprasan/db-checker-tomcat:1.1
     environment:
       - TOMCAT_JDBC_URL=jdbc:mysql://mysql:3306/choreo_apim_db?useSSL=false
       - TOMCAT_JDBC_PASSWORD=root
@@ -28,6 +28,7 @@ services:
       - TOMCAT_JDBC_MIN_IDLE=10
       - TOMCAT_JDBC_MAX_IDLE=10
       - TOMCAT_JDBC_MAX_ACTIVE=100
+      - TOMCAT_JDBC_MAX_AGE=43200000
       - TOMCAT_JDBC_VALIDATION_QUERY=SELECT 1
       - TOMCAT_JDBC_LOG_ABANDONED=true
       - TOMCAT_JDBC_VALIDATION_INTERVAL=30000

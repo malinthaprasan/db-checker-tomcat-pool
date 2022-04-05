@@ -193,12 +193,16 @@ public class Main {
                             log.info("{ \"event\": \"executeQueryError\", \"conIteration\" : " + j
                                     +", \"perConIteration\" : " + i + ", \"error\": \"" + e.getMessage() + "\"}");
                             log.error("Error while executing query", e);
+                            closeConnection(j, i, connection, e);
+                            break; //for loop
                         }
                     } // end try (statement)
                     catch (SQLException e) {
                         log.info("{ \"event\": \"createStatementError\", \"conIteration\" : " + j
                                 +", \"perConIteration\" : " + i + ", \"error\": \"" + e.getMessage() + "\"}");
                         log.error("Error while creating statement", e);
+                        closeConnection(j, i, connection, e);
+                        break; //for loop
                     }
                 } // end for (iterationsPerConnection)
                 Thread.sleep(sleepTimeMs);
@@ -210,6 +214,20 @@ public class Main {
             }
             j++;
         } // end while (totalIterations)
+    }
+
+    private static void closeConnection(int conIteration, int perConIteration, Connection connection, SQLException e) {
+        try {
+            log.info("{ \"event\": \"closingConnection\", \"conIteration\" : " + conIteration
+                    +", \"perConIteration\" : " + perConIteration + ", \"error\": \"" + e.getMessage() + "\"}");
+            connection.close();
+            log.info("{ \"event\": \"connectionClosed\", \"conIteration\" : " + conIteration
+                    +", \"perConIteration\" : " + perConIteration + ", \"error\": \"" + e.getMessage() + "\"}");
+        } catch (SQLException closeEx) {
+            log.info("{ \"event\": \"connectionCloseError\", \"conIteration\" : " + conIteration
+                    +", \"perConIteration\" : " + perConIteration + ", \"error\": \"" + e.getMessage() + "\"}");
+            log.error("Error while closing connection", e);
+        }
     }
 
     public static void getEnvAndApply(String param, Consumer<String> applier) {
