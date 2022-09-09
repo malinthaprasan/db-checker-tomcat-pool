@@ -158,26 +158,26 @@ public class Main {
                                 int columnsNumber = rsmd.getColumnCount();
                                 while (rs.next()) {
                                     count++;
-                                    if (logResultSet) {
-                                        StringBuilder resultString = new StringBuilder();
-                                        resultString.append("{ ");
-                                        for (int n = 1; n <= columnsNumber; n++) {
-                                            try {
-                                                String columnValue = rs.getString(n);
-                                                resultString.append("\"")
-                                                        .append(rsmd.getColumnName(n))
-                                                        .append("\": \"")
-                                                        .append(columnValue)
-                                                        .append("\"");
-                                                if (n != columnsNumber) {
-                                                    resultString.append(",");
-                                                }
-                                            } catch (ClassCastException e) {
-                                                log.error("Error while casting java.sql.Type: " +
-                                                        rsmd.getColumnType(n) + " to string", e);
+                                    StringBuilder resultString = new StringBuilder();
+                                    resultString.append("{ ");
+                                    for (int n = 1; n <= columnsNumber; n++) {
+                                        try {
+                                            String columnValue = rs.getString(n);
+                                            resultString.append("\"")
+                                                    .append(rsmd.getColumnName(n))
+                                                    .append("\": \"")
+                                                    .append(columnValue)
+                                                    .append("\"");
+                                            if (n != columnsNumber) {
+                                                resultString.append(",");
                                             }
+                                        } catch (ClassCastException e) {
+                                            log.error("Error while casting java.sql.Type: " +
+                                                    rsmd.getColumnType(n) + " to string", e);
                                         }
-                                        resultString.append(" }");
+                                    }
+                                    resultString.append(" }");
+                                    if (logResultSet) {
                                         log.info("{ \"event\": \"logResultSetItem\", \"conIteration\" : " + j + ", " +
                                                 "\"perConIteration\" : " + i + ", \"resultItem\": " + count + " " +
                                                 ", \"result\": " + resultString + "}");
