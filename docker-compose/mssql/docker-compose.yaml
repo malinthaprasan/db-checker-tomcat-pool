@@ -16,7 +16,7 @@ services:
         start_period: 10s
 
   db-checker:
-    image: malinthaprasan/db-checker-tomcat:1.1
+    image: malinthaprasan/db-checker-tomcat:1.2
     environment:
       - TOMCAT_JDBC_URL=jdbc:sqlserver://mssql:1433;database=tempdb;SendStringParametersAsUnicode=false
       - TOMCAT_JDBC_PASSWORD=yourStrong#Password
