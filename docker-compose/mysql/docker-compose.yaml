@@ -18,7 +18,7 @@ services:
       - ./mysql/sql-scripts/:/docker-entrypoint-initdb.d/
 
   db-checker:
-    image: malinthaprasan/db-checker-tomcat:1.1
+    image: malinthaprasan/db-checker-tomcat:1.2
     environment:
       - TOMCAT_JDBC_URL=jdbc:mysql://mysql:3306/choreo_apim_db?useSSL=false
       - TOMCAT_JDBC_PASSWORD=root
